@@ -2,7 +2,7 @@ package stringmanipulation;
 
 import java.util.*;
 
-public class AllSubArrays {
+public class AllSubStrings {
 
     public static void main(String[] args) {
 
@@ -15,17 +15,17 @@ public class AllSubArrays {
     }
 
     private static String [] subArrays1(String s){
-        String res [] = new String[2*(s.length() * s.length() + 1)/2];
+        Set <String> set = new LinkedHashSet<>();
         int count = 0;
         for(int i = 0; i < s.length(); i ++){
-
             for(int j = i; j < s.length(); j++){
-
-                res[count] = s.substring(j, s.length()   );
+                String k = s.substring(i, j+1);
+                set.add( k );
                 count++;
             }
         }
-
-        return res;
+        String [] arr = new String[set.size()];
+        System.out.println(arr[arr.length-1]);
+        return set.toArray(arr);
     }
 }
